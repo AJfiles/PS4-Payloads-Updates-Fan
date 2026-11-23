@@ -364,7 +364,7 @@ int _main(void *thread_data) {
    * RESUMEN FINAL: 3/3 CAPAS RESTAURADAS EXITOSAMENTE
    * ============================================================= */
   report_text("updates.status=ALL_LAYERS_RESTORED (3/3)\n");
-  (void)payload_notify("Updates: 3/3 restaurado");
+  (void)payload_notify("Updates: 3/3 restaurado — AJ");
   report_text("payload.completed=yes\n");
   (void)payload_send_report();
   return 0;

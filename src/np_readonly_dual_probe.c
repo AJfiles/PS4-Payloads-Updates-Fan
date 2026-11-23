@@ -1,3 +1,5 @@
+__attribute__((used, section(".rodata")))
+const char g_aj_signature[] = "PS4 Payloads by AJ | github.com/AJfiles/PS4-Payloads-Updates-Fan";
 /*
  * Sonda ampliada de solo lectura para GoldHEN / PS4 9.00 (Fase 2b/2c).
  * Consulta simultánea en hardware de:
@@ -275,6 +277,7 @@ static void deliver_report(void) {
 }
 
 static void probe_keys(void) {
+  add_text("# " "PS4 Payloads by AJ | github.com/AJfiles/PS4-Payloads-Updates-Fan" "\n");
   int regmgr_handle = 0;
   set_errno_zero();
 
@@ -415,6 +418,6 @@ int _main(void *thread_data) {
 
   add_text("probe.completed=yes\n");
   deliver_report();
-  notify_probe_status("Sonda Dual: lectura completada");
+  notify_probe_status("Sonda Dual: lectura completada — AJ");
   return 0;
 }

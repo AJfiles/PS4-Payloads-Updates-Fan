@@ -368,7 +368,7 @@ int _main(void *thread_data) {
    * RESUMEN FINAL: 3/3 CAPAS APLICADAS EXITOSAMENTE
    * ============================================================= */
   report_text("updates.status=ALL_LAYERS_APPLIED (3/3)\n");
-  (void)payload_notify("Updates: 3/3 aplicado");
+  (void)payload_notify("Updates: 3/3 aplicado — AJ");
   report_text("payload.completed=yes\n");
   (void)payload_send_report();
   return 0;
