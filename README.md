@@ -11,8 +11,45 @@ Payloads universales para tu PS4: funcionan sin importar la versión del firmwar
 
 📦 **¡Descarga directa lista para usar!**
 Puedes bajar los paquetes ya compilados directamente desde la [sección de Releases](https://github.com/AJfiles/PS4-Payloads-Updates-Fan/releases/latest):
-- 🔐 **`goldhen_full_payloads_v2.zip`**: Suite completa v2 (triple capa de bloqueo + restaurador + sonda + test).
-- ⚙️ **`goldhen_universal_payloads.zip`**: Suite v1 clásica (los 8 perfiles de ventilador + bloqueo v1 por carpetas).
+- 🔐 **`goldhen_full_payloads_v2.1.1.zip`**: Bloqueo completo en 3 capas + los 8 umbrales de ventilador + herramientas en `diagnostic/`.
+- ⚙️ **`goldhen_universal_payloads_v2.1.1.zip`**: Bloqueo mínimo por directorios + los 8 umbrales de ventilador.
+
+---
+
+## 📦 Descargas
+
+### goldhen_full_payloads_v2.1.1.zip (RECOMENDADO)
+**Bloqueo completo en 3 capas + todos los umbrales de ventilador**
+
+Incluye:
+- 2 payloads de updates v2 (disable/enable full, 3 capas)
+- 8 payloads de ventilador (50-80 °C + default)
+- Carpeta `diagnostic/` con herramientas de validación
+
+**Uso diario:**
+1. `disable_updates_full.bin` (una vez, persiste)
+2. `fan_threshold_60_universal.bin` (una vez, persiste)
+
+**Para actualizar o usar PSN:**
+1. `enable_updates_full.bin`
+2. Actualizar / usar PSN
+3. `disable_updates_full.bin` inmediatamente
+
+⚠️ **Advertencia:** El bloqueo v2 corta PSN (tienda, online, parches de juegos).
+
+### goldhen_universal_payloads_v2.1.1.zip (ALTERNATIVO)
+**Bloqueo mínimo (solo filesystem) + todos los umbrales de ventilador**
+
+Incluye:
+- 2 payloads de updates v1 (disable/enable universal, solo directorios)
+- 8 payloads de ventilador (50-80 °C + default)
+
+**Diferencia con v2:**
+- Solo bloquea el PUP de sistema (no descargas automáticas ni NP_env)
+- PSN sigue funcionando (pero te pedirá actualizar al entrar)
+- Más portable, menos protección
+
+**Uso recomendado:** Solo si necesitas PSN funcional y aceptas el riesgo.
 
 ---
 
@@ -22,20 +59,20 @@ Aquí tienes la lista de todos los binarios incluidos, probados uno a uno con su
 
 | Payload | Función Principal | Efecto Inmediato | Persistencia tras Reinicio | Nivel de Riesgo | Suma SHA-256 |
 |---|---|---|---|---|---|
-| `fan_threshold_50_universal.bin` | Control Térmico 50 °C | Eleva RPM al alcanzar 50 °C | Persiste tras reinicio (verificado) | Mínimo (mayor desgaste acústico) | 5df818ab7cc4529a233a31397338e7657952cf94fe2863f8de508aeda71a4540 |
-| `fan_threshold_55_universal.bin` | Control Térmico 55 °C | Eleva RPM al alcanzar 55 °C | Persiste tras reinicio (verificado) | Mínimo | fd5eb4e897289bf7c2ae76a10de793bbed542aa3d93364940111850b6e23620a |
-| `fan_threshold_60_universal.bin` | Control Térmico 60 °C | Eleva RPM al alcanzar 60 °C | Persiste tras reinicio (verificado) | Mínimo (equilibrio recomendado) | 72bfc7ae8b93e780f574d3d5f552110e36955eb178b5a50e9e2f4c38fc7146f5 |
-| `fan_threshold_65_universal.bin` | Control Térmico 65 °C | Eleva RPM al alcanzar 65 °C | Persiste tras reinicio (verificado) | Mínimo | c57b262d0a3254787a2acf674a12b8e64f3a05053d1b82013f4573eabf84ed6e |
-| `fan_threshold_70_universal.bin` | Control Térmico 70 °C | Eleva RPM al alcanzar 70 °C | Persiste tras reinicio (verificado) | Mínimo | afcab9ef28942cf9a0af05dc2965074a9d06b1f8ab555b36b53937088b49cd94 |
-| `fan_threshold_75_universal.bin` | Control Térmico 75 °C | Eleva RPM al alcanzar 75 °C | Persiste tras reinicio (verificado) | Mínimo | a0e23146c8680a0728b21af7b439ee063399bef3dcbcbe24d9cdcc9b2528c7b9 |
-| `fan_threshold_80_universal.bin` | Control Térmico 80 °C | Eleva RPM al alcanzar 80 °C | Persiste tras reinicio (verificado) | Moderado (superior a stock 79 °C) | b3ece1b5d05178ea1de87e61afa01c1b3716921fad3ca5aefc4e0e2a024e913d |
-| `fan_default_universal.bin` | Restablecer Térmica de Fábrica | Restaura umbral stock a 79 °C | Persiste tras reinicio (verificado) | Nulo (perfil original de fábrica) | 1660b849ec15fc529f22382a3ef98facb5c8762b74be6558ff13b3296e01ea1d |
-| `disable_updates_universal.bin` | Bloqueo v1 (Solo Sistema de Archivos) | Crea carpetas señuelo inmutables | Persiste tras reinicio (verificado) | Bajo (PSN permanece accesible) | 6b27067b10a0455f89f1cc9ace6f40b810b29e95ce49dffda69e3c34f14177d1 |
-| `enable_updates_universal.bin` | Desbloqueo v1 (Sistema de Archivos) | Elimina carpetas señuelo | Persiste tras reinicio (verificado) | Alto si se conecta a Internet | a5ce2a0fc9aafe499edf214b377b6dbeb6a89e23bd5be7fd02e8bac499132afb |
-| `disable_updates_full.bin` | Bloqueo v2 (Triple Capa Completa) | Señuelos + auto_download 0 + noupdt | Persiste tras reinicio (verificado) | Bajo (corta PSN por seguridad) | 93d2285e33840113d268994bc9c8c63da25b758ea73f847d51c0153cf91c1e6d |
-| `enable_updates_full.bin` | Desbloqueo v2 (Triple Capa Completa) | Limpia señuelos + auto_download 1 + np | Persiste tras reinicio (verificado) | Crítico: consola expuesta a update | 530f60e00357bcaafdbc3f4d3be87e645b85bd3a41bdd01cc35a4c8515a5efe0 |
-| `write_verify_noop.bin` | Verificación Segura de Escritura | Escribe valores actuales y los relee | Estado sin cambios (comprobación pura) | Nulo (prueba de validación) | 4b125b6c1229c7dfa8c3d8e8961e0f89d8c6faabe1296b606af6d6ad4a218f8d |
-| `np_readonly_dual_probe.bin` | Diagnóstico de Solo Lectura | Inspecciona claves y reporta vía socket | No modifica nada (modo lectura) | Nulo (sonda no intrusiva) | a32dcc1a53cc95ee2a4b846334dc0af4b854fd4dd450f11bbcc2e8796b1b2983 |
+| `fan_threshold_50_universal.bin` | Control Térmico 50 °C | Eleva RPM al alcanzar 50 °C | Persiste tras reinicio (verificado) | Mínimo (mayor desgaste acústico) | `5df818ab7cc4529a233a31397338e7657952cf94fe2863f8de508aeda71a4540` |
+| `fan_threshold_55_universal.bin` | Control Térmico 55 °C | Eleva RPM al alcanzar 55 °C | Persiste tras reinicio (verificado) | Mínimo | `fd5eb4e897289bf7c2ae76a10de793bbed542aa3d93364940111850b6e23620a` |
+| `fan_threshold_60_universal.bin` | Control Térmico 60 °C | Eleva RPM al alcanzar 60 °C | Persiste tras reinicio (verificado) | Mínimo (equilibrio recomendado) | `72bfc7ae8b93e780f574d3d5f552110e36955eb178b5a50e9e2f4c38fc7146f5` |
+| `fan_threshold_65_universal.bin` | Control Térmico 65 °C | Eleva RPM al alcanzar 65 °C | Persiste tras reinicio (verificado) | Mínimo | `c57b262d0a3254787a2acf674a12b8e64f3a05053d1b82013f4573eabf84ed6e` |
+| `fan_threshold_70_universal.bin` | Control Térmico 70 °C | Eleva RPM al alcanzar 70 °C | Persiste tras reinicio (verificado) | Mínimo | `afcab9ef28942cf9a0af05dc2965074a9d06b1f8ab555b36b53937088b49cd94` |
+| `fan_threshold_75_universal.bin` | Control Térmico 75 °C | Eleva RPM al alcanzar 75 °C | Persiste tras reinicio (verificado) | Mínimo | `a0e23146c8680a0728b21af7b439ee063399bef3dcbcbe24d9cdcc9b2528c7b9` |
+| `fan_threshold_80_universal.bin` | Control Térmico 80 °C | Eleva RPM al alcanzar 80 °C | Persiste tras reinicio (verificado) | Moderado (superior a stock 79 °C) | `b3ece1b5d05178ea1de87e61afa01c1b3716921fad3ca5aefc4e0e2a024e913d` |
+| `fan_default_universal.bin` | Restablecer Térmica de Fábrica | Restaura umbral stock a 79 °C | Persiste tras reinicio (verificado) | Nulo (perfil original de fábrica) | `1660b849ec15fc529f22382a3ef98facb5c8762b74be6558ff13b3296e01ea1d` |
+| `disable_updates_universal.bin` | Bloqueo v1 (Solo Sistema de Archivos) | Crea carpetas señuelo inmutables | Persiste tras reinicio (verificado) | Bajo (PSN permanece accesible) | `6b27067b10a0455f89f1cc9ace6f40b810b29e95ce49dffda69e3c34f14177d1` |
+| `enable_updates_universal.bin` | Desbloqueo v1 (Sistema de Archivos) | Elimina carpetas señuelo | Persiste tras reinicio (verificado) | Alto si se conecta a Internet | `a5ce2a0fc9aafe499edf214b377b6dbeb6a89e23bd5be7fd02e8bac499132afb` |
+| `disable_updates_full.bin` | Bloqueo v2 (Triple Capa Completa) | Señuelos + auto_download 0 + noupdt | Persiste tras reinicio (verificado) | Bajo (corta PSN por seguridad) | `93d2285e33840113d268994bc9c8c63da25b758ea73f847d51c0153cf91c1e6d` |
+| `enable_updates_full.bin` | Desbloqueo v2 (Triple Capa Completa) | Limpia señuelos + auto_download 1 + np | Persiste tras reinicio (verificado) | Crítico: consola expuesta a update | `530f60e00357bcaafdbc3f4d3be87e645b85bd3a41bdd01cc35a4c8515a5efe0` |
+| `write_verify_noop.bin` | Verificación Segura de Escritura | Escribe valores actuales y los relee | Estado sin cambios (comprobación pura) | Nulo (prueba de validación) | `4b125b6c1229c7dfa8c3d8e8961e0f89d8c6faabe1296b606af6d6ad4a218f8d` |
+| `np_readonly_dual_probe.bin` | Diagnóstico de Solo Lectura | Inspecciona claves y reporta vía socket | No modifica nada (modo lectura) | Nulo (sonda no intrusiva) | `a32dcc1a53cc95ee2a4b846334dc0af4b854fd4dd450f11bbcc2e8796b1b2983` |
 
 ---
 
