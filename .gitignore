@@ -1,0 +1,17 @@
+# Entornos y artefactos de desarrollo
+.venv/
+__pycache__/
+*.pyc
+
+# Compilación
+work/
+*.o
+*.elf
+
+# Backups y dumps privados
+backup_*/
+ftp_downloads/
+*.dat
+*.idx
+*.rec
+*.nvs

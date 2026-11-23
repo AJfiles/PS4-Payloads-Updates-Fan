@@ -1,0 +1,46 @@
+payload=enable_updates_full
+report_endpoint=<PS4_IP>:9090
+kernel_api.rc=0
+identity.uid=0
+identity.gid=0
+identity.is_in_sandbox=0
+precondition=PASS
+fw.sce.rc=0
+fw.sce.version= 9.008.031
+fw.sce.numeric=151027761
+fw.sce.numeric_hex=0x09008031
+fw.sysctl.rc=0
+fw.sysctl.size=4
+fw.sysctl.raw=31 80 00 09
+fw.sysctl.u32le=0x09008031
+route.0.path=/update/PS4UPDATE.PUP.net.temp
+route.0.before.lstat.rc=0
+route.0.before.errno=0
+route.0.before.type=directory
+route.0.before.empty=yes
+route.1.path=/update/PS4UPDATE.PUP
+route.1.before.lstat.rc=0
+route.1.before.errno=0
+route.1.before.type=directory
+route.1.before.empty=yes
+route.0.rmdir.rc=0.errno=0
+route.1.rmdir.rc=0.errno=0
+route.0.after.rc=-1.errno=2
+route.0.after.type=missing
+route.1.after.rc=-1.errno=2
+route.1.after.type=missing
+layer1.status=PASS
+regmgr.status=AVAILABLE
+layer2.autodl.before.val=0
+layer2.autodl.set.rc=0
+layer2.autodl.set.errno=0
+layer2.autodl.after.val=1
+layer2.status=PASS
+layer3.npenv.before.hex17=6e6f757064740000000000000000000000
+layer3.npenv.set.rc=0
+layer3.npenv.set.errno=0
+layer3.npenv.fallback_used=no
+layer3.npenv.after.hex17=6e70000000000000000000000000000000
+layer3.status=PASS
+updates.status=ALL_LAYERS_RESTORED (3/3)
+payload.completed=yes
