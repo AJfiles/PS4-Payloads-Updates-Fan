@@ -1,10 +1,21 @@
-# PS4 Universal Payloads: Fan Control & Updates Blocker
+# 🎮 PS4 Universal Payloads: Fan Control & Updates Blocker
 
-A robust, position-independent (PIC) suite of PlayStation 4 payloads engineered to execute universally across firmware versions without hardcoded kernel offsets. It fixes legacy stack overflow bugs in fan control and provides an empirical three-layer protection against accidental system updates.
+[![Release](https://img.shields.io/github/v/release/AJfiles/PS4-Payloads-Updates-Fan?color=blue&label=Release)](https://github.com/AJfiles/PS4-Payloads-Updates-Fan/releases/latest)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Tested on](https://img.shields.io/badge/Hardware-PS4%20Pro%209.00-success.svg)](evidence/TEST_STATUS.md)
+
+Universal, position-independent (PIC) payloads for your PlayStation 4: they work seamlessly across firmware revisions with no hardcoded kernel addresses and no need for separate files per version. They fix legacy memory corruption crashes in fan control and deliver genuine 3-layer protection against accidental system updates.
+
+📦 **Ready-to-use compiled bundles:**
+Download prebuilt archives directly from our [Releases page](https://github.com/AJfiles/PS4-Payloads-Updates-Fan/releases/latest):
+- 🔐 **`goldhen_full_payloads_v2.zip`**: Complete v2 suite (3-layer update blocker + restorer + diagnostic probe + safe write test).
+- ⚙️ **`goldhen_universal_payloads.zip`**: Classic v1 suite (8 fan control profiles + v1 filesystem decoy blocker).
 
 ---
 
-## Payload Summary
+## 🎮 Payload Catalog
+
+All 14 binaries compiled and measured with authoritative SHA-256 checksums:
 
 | Payload | Description | Immediate Effect | Reboot Persistence | Risk Level | SHA-256 Checksum |
 |---|---|---|---|---|---|
@@ -25,25 +36,31 @@ A robust, position-independent (PIC) suite of PlayStation 4 payloads engineered 
 
 ---
 
-## Key Highlights
+## 🛡️ Compatibility: Tested Reality & Community Invitation
 
-1. **Bug-Free Memory Safety:** Eliminates the classic 18-byte stack overflow present in legacy fan payloads by using an exact 28-byte aligned structure and read-modify-write safety checks.
-2. **True Position-Independent Code (PIC):** Dynamic symbol resolution via runtime system calls (`sys_dynlib_load_prx` and `sys_dynlib_dlsym`). No hardcoded kernel addresses.
-3. **Triple-Layer Update Blocking:**
-   - Layer 1: Filesystem decoy directories blocking update packages.
-   - Layer 2: Disables background OS automatic downloads via registry key `0x02800500`.
-   - Layer 3: Environment isolation via system NP environment key `0x19800000` set to `noupdt`.
-4. **Verified Hardware Execution:** Tested and measured on PS4 Pro running GoldHEN 2.4b18.10.
+- ✅ **HARDWARE VERIFIED:** PS4 Pro on firmware 9.00 running GoldHEN 2.4b18.10. Every payload was benchmarked and verified for immediate effect and reboot persistence.
+- 🟡 **EXPECTED WITH STRONG EVIDENCE:**
+  - Fan control across **5.05 to 11.00**: Operational as long as `/dev/icc_fan` is present.
+  - Updates v1 across **4.73 to 13.52**: Uses identical standard filesystem update decoy paths.
+- 🔬 **UNVERIFIED BUT COMPATIBLE BY DESIGN (12.00 to 14.02 & FAT/Slim):**
+  These payloads are fully agnostic of the specific firmware integer or chassis revision. They only require:
+  1. BinLoader server active on port 9090.
+  2. Root privileges without sandbox.
+  3. `/dev/icc_fan` character device (for fan control).
+  4. Working syscall resolution (`libSceRegMgr` for v2).
+
+  **Running 12.x, 13.x, or 14.02?**
+  You can run our completely safe, non-intrusive probe `np_readonly_dual_probe.bin` and submit your telemetry output using [docs/PROBE_REPORT_TEMPLATE.md](docs/PROBE_REPORT_TEMPLATE.md). A single report from 14.02 can validate full compatibility for everyone!
 
 ---
 
-## Quickstart
+## 🧰 Quickstart
 
 1. Ensure GoldHEN is running on your console.
-2. Navigate to `Settings` > `★GoldHEN` > `Server Settings` and enable `Enable BinLoader Server` (port 9090).
+2. Enable BinLoader Server under `Settings` > `★GoldHEN` > `Server Settings` (default port `9090`).
 3. Send the payload from your terminal:
    ```bash
-   python tools/send_payload.py --ip <PS4_IP> --port 9090 payloads/v2/disable_updates_full.bin
+   python tools/send_payload.py --ip <YOUR_PS4_IP> --port 9090 payloads/v2/disable_updates_full.bin
    ```
 
 Distributed under the **MIT License**. See `LICENSE` for details. Not affiliated with Sony Interactive Entertainment.
