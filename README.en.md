@@ -4,6 +4,9 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tested on](https://img.shields.io/badge/Hardware-PS4%20Pro%209.00-success.svg)](evidence/TEST_STATUS.md)
 
+🧪 **Hardware tested:** PS4 Pro, firmware 9.00, GoldHEN 2.4b18.10
+🎯 **Expected range:** 5.05–11.00 (fan) | 4.73–13.52 (updates v1) | 12.00–14.02 (to be verified)
+
 Universal, position-independent (PIC) payloads for your PlayStation 4: they work seamlessly across firmware revisions with no hardcoded kernel addresses and no need for separate files per version. They fix legacy memory corruption crashes in fan control and deliver genuine 3-layer protection against accidental system updates.
 
 📦 **Ready-to-use compiled bundles:**
@@ -19,20 +22,20 @@ All 14 binaries compiled and measured with authoritative SHA-256 checksums:
 
 | Payload | Description | Immediate Effect | Reboot Persistence | Risk Level | SHA-256 Checksum |
 |---|---|---|---|---|---|
-| `fan_threshold_50_universal.bin` | Fan Control 50 °C | RPM raises at 50 °C | Persists across reboots | Low (higher noise) | `c09533b4811fd49642a1d6bdea84973da0227aa80c5c3f38f8fdbcaa76fbf549` |
-| `fan_threshold_55_universal.bin` | Fan Control 55 °C | RPM raises at 55 °C | Persists across reboots | Low | `e8763eaae27248138ea1d37234919acaba93db1a13b0b1ee1f089695ae69a54f` |
-| `fan_threshold_60_universal.bin` | Fan Control 60 °C | RPM raises at 60 °C | Persists across reboots | Low (recommended sweetspot) | `7ee35577a903899037630ad5d201dc9a03aa480dbf9b757753186375ce702ad0` |
-| `fan_threshold_65_universal.bin` | Fan Control 65 °C | RPM raises at 65 °C | Persists across reboots | Low | `6e3d3f0f87e687a2f8f3ab202da3446fdd3a32e40a4784027e75dbd91ec2197a` |
-| `fan_threshold_70_universal.bin` | Fan Control 70 °C | RPM raises at 70 °C | Persists across reboots | Low | `31f8ab3898134dda855e2737c656b387e7738bf8a997f6bc5939c5590827b017` |
-| `fan_threshold_75_universal.bin` | Fan Control 75 °C | RPM raises at 75 °C | Persists across reboots | Low | `76676ff8d86382c95cab5d6ef4d07df25e5fdb79112566246c845c42c6f07df8` |
-| `fan_threshold_80_universal.bin` | Fan Control 80 °C | RPM raises at 80 °C | Persists across reboots | Moderate (above 79 °C stock) | `bf31765ed3de71955c5a77aa101cf1118dabd0bb587f3d43c11c35cb397a3e94` |
-| `fan_default_universal.bin` | Restore Stock Thermal | Restores stock 79 °C | Persists across reboots | None (original factory profile) | `d2d26d032bccbc0aa9499ad9ab71549c7569a584264074f4f804c13d148f46b2` |
-| `disable_updates_universal.bin` | v1 Decoy Blocker | Creates immutable decoy dirs | Persists across reboots | Low (PSN stays reachable) | `0a3ae44cf6a691c17432b734687a5d386bc5561298985e882a92b5f6d381db62` |
-| `enable_updates_universal.bin` | v1 Decoy Remover | Removes decoy directories | Persists across reboots | High if connected to network | `c7cb5370041a982a54cb1cb2cc1c004d435451f5d0b376d93c372cee47e4541a` |
-| `disable_updates_full.bin` | v2 3-Layer Blocker | Decoys + auto_download 0 + noupdt | Persists across reboots | Low (blocks PSN connection) | `d164f3ee4df8e42b67a979f4e5c00101789a842615610273c7046bf9a1ad1043` |
-| `enable_updates_full.bin` | v2 3-Layer Restorer | Cleans decoys + auto_download 1 + np | Persists across reboots | Critical: exposed to updates | `714ed6707080f5a70c00d1c2ca8d9b7e8ad2988ac39dfbac6a9123cacbcd6990` |
-| `write_verify_noop.bin` | Safe Write Test | Writes current values & verifies | No state modification | None (verification test) | `9fcde094b5c0fa6134a9bee0f1823a4506f9549b55778e892f232a101289c6bb` |
-| `np_readonly_dual_probe.bin` | Diagnostic Probe | Inspects keys & reports via TCP | Pure read-only operation | None (non-intrusive probe) | `a8722089a2e79183480af16bbed9989df88e337a63b0311be34d051f49c90b80` |
+| `fan_threshold_50_universal.bin` | Fan Control 50 °C | RPM raises at 50 °C | Persists across reboots | Low (higher noise) | 5df818ab7cc4529a233a31397338e7657952cf94fe2863f8de508aeda71a4540 |
+| `fan_threshold_55_universal.bin` | Fan Control 55 °C | RPM raises at 55 °C | Persists across reboots | Low | fd5eb4e897289bf7c2ae76a10de793bbed542aa3d93364940111850b6e23620a |
+| `fan_threshold_60_universal.bin` | Fan Control 60 °C | RPM raises at 60 °C | Persists across reboots | Low (recommended sweetspot) | 72bfc7ae8b93e780f574d3d5f552110e36955eb178b5a50e9e2f4c38fc7146f5 |
+| `fan_threshold_65_universal.bin` | Fan Control 65 °C | RPM raises at 65 °C | Persists across reboots | Low | c57b262d0a3254787a2acf674a12b8e64f3a05053d1b82013f4573eabf84ed6e |
+| `fan_threshold_70_universal.bin` | Fan Control 70 °C | RPM raises at 70 °C | Persists across reboots | Low | afcab9ef28942cf9a0af05dc2965074a9d06b1f8ab555b36b53937088b49cd94 |
+| `fan_threshold_75_universal.bin` | Fan Control 75 °C | RPM raises at 75 °C | Persists across reboots | Low | a0e23146c8680a0728b21af7b439ee063399bef3dcbcbe24d9cdcc9b2528c7b9 |
+| `fan_threshold_80_universal.bin` | Fan Control 80 °C | RPM raises at 80 °C | Persists across reboots | Moderate (above 79 °C stock) | b3ece1b5d05178ea1de87e61afa01c1b3716921fad3ca5aefc4e0e2a024e913d |
+| `fan_default_universal.bin` | Restore Stock Thermal | Restores stock 79 °C | Persists across reboots | None (original factory profile) | 1660b849ec15fc529f22382a3ef98facb5c8762b74be6558ff13b3296e01ea1d |
+| `disable_updates_universal.bin` | v1 Decoy Blocker | Creates immutable decoy dirs | Persists across reboots | Low (PSN stays reachable) | 6b27067b10a0455f89f1cc9ace6f40b810b29e95ce49dffda69e3c34f14177d1 |
+| `enable_updates_universal.bin` | v1 Decoy Remover | Removes decoy directories | Persists across reboots | High if connected to network | a5ce2a0fc9aafe499edf214b377b6dbeb6a89e23bd5be7fd02e8bac499132afb |
+| `disable_updates_full.bin` | v2 3-Layer Blocker | Decoys + auto_download 0 + noupdt | Persists across reboots | Low (blocks PSN connection) | 93d2285e33840113d268994bc9c8c63da25b758ea73f847d51c0153cf91c1e6d |
+| `enable_updates_full.bin` | v2 3-Layer Restorer | Cleans decoys + auto_download 1 + np | Persists across reboots | Critical: exposed to updates | 530f60e00357bcaafdbc3f4d3be87e645b85bd3a41bdd01cc35a4c8515a5efe0 |
+| `write_verify_noop.bin` | Safe Write Test | Writes current values & verifies | No state modification | None (verification test) | 4b125b6c1229c7dfa8c3d8e8961e0f89d8c6faabe1296b606af6d6ad4a218f8d |
+| `np_readonly_dual_probe.bin` | Diagnostic Probe | Inspects keys & reports via TCP | Pure read-only operation | None (non-intrusive probe) | a32dcc1a53cc95ee2a4b846334dc0af4b854fd4dd450f11bbcc2e8796b1b2983 |
 
 ---
 
@@ -62,5 +65,16 @@ All 14 binaries compiled and measured with authoritative SHA-256 checksums:
    ```bash
    python tools/send_payload.py --ip <YOUR_PS4_IP> --port 9090 payloads/v2/disable_updates_full.bin
    ```
+
+---
+
+## 👤 Author
+
+**AJ** — Development, testing, and documentation of this universal payload suite.
+- Repository: [github.com/AJfiles/PS4-Payloads-Updates-Fan](https://github.com/AJfiles/PS4-Payloads-Updates-Fan)
+- Tested on real hardware (PS4 Pro 9.00)
+- Embedded signature in all binaries for traceability
+
+---
 
 Distributed under the **MIT License**. See `LICENSE` for details. Not affiliated with Sony Interactive Entertainment.

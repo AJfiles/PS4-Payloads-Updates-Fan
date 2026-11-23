@@ -1,3 +1,5 @@
+__attribute__((used, section(".rodata")))
+const char g_aj_signature[] = "PS4 Payloads by AJ | github.com/AJfiles/PS4-Payloads-Updates-Fan";
 /* Inicialización mínima, logging y conexión TCP común a los BIN generados. */
 #include "payload_runtime.h"
 #include "module.h"
@@ -31,6 +33,7 @@ static int (*send_notification)(int, SceNotificationRequest *, size_t, int);
 extern int getFunctionAddressByName(int module_id, char *name, void *destination);
 
 void report_start(const char *name) {
+  report_text("signature=" "PS4 Payloads by AJ | github.com/AJfiles/PS4-Payloads-Updates-Fan" "\n");
   payload_report_len = 0;
   payload_report[0] = 0;
   report_text("payload=");
@@ -281,13 +284,13 @@ void payload_notify_fan(unsigned int target, unsigned int before, int is_default
   char text[128] = {0};
   size_t pos = 0;
   if (is_default) {
-    (void)payload_notify("Ventilador: umbral original restaurado (79 \xC2\xB0" "C)");
+    (void)payload_notify("Ventilador: umbral original restaurado (79 \xC2\xB0" "C) \xE2\x80\x94 AJ");
     return;
   }
   if (target == 80) {
     pos = append_text(text, pos, sizeof(text), "Ventilador: 80 \xC2\xB0" "C (antes ");
     pos = append_number(text, pos, sizeof(text), before);
-    (void)append_text(text, pos, sizeof(text), " \xC2\xB0" "C). Superior al original");
+    (void)append_text(text, pos, sizeof(text), " \xC2\xB0" "C). Superior al original \xE2\x80\x94 AJ");
     (void)payload_notify(text);
     return;
   }
@@ -295,7 +298,7 @@ void payload_notify_fan(unsigned int target, unsigned int before, int is_default
   pos = append_number(text, pos, sizeof(text), target);
   pos = append_text(text, pos, sizeof(text), " \xC2\xB0" "C (antes ");
   pos = append_number(text, pos, sizeof(text), before);
-  (void)append_text(text, pos, sizeof(text), " \xC2\xB0" "C)");
+  (void)append_text(text, pos, sizeof(text), " \xC2\xB0" "C) \xE2\x80\x94 AJ");
   (void)payload_notify(text);
 }
 
@@ -306,7 +309,7 @@ void payload_notify_updates(int enabling, int success) {
       : "No se pudieron bloquear actualizaciones. Revise el log");
   } else {
     (void)payload_notify(enabling
-      ? "Actualizaciones habilitadas. Pueden descargarse"
-      : "Actualizaciones bloqueadas. Se mantienen al apagar");
+      ? "Actualizaciones habilitadas. Pueden descargarse \xE2\x80\x94 AJ"
+      : "Actualizaciones bloqueadas. Se mantienen al apagar \xE2\x80\x94 AJ");
   }
 }

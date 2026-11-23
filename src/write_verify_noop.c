@@ -205,7 +205,7 @@ int _main(void *thread_data) {
    * ------------------------------------------------------------- */
   if (autodl_ok && npenv_ok) {
     report_text("write_verify.status=PASS_ALL\n");
-    (void)payload_notify("Write Verify No-Op: PASS (SetStr + SetInt OK)");
+    (void)payload_notify("Write Verify No-Op: PASS — AJ");
   } else {
     report_text("write_verify.status=FAIL\n");
     (void)payload_notify("Write Verify No-Op: FAIL (Revise log)");
